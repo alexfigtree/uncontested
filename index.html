@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historical extent map \u2014 prototype</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+  <header id="header">
+    <h1>Historical extent map</h1>
+    <p class="subtitle">Prototype &middot; 25 countries &middot; rough/approximate borders</p>
+    <p class="subtitle" id="border-status">Loading real border data&hellip;</p>
+  </header>
+
+  <div id="map-wrap">
+    <div id="map"></div>
+
+    <aside id="legend">
+      <h2>Legend</h2>
+      <p class="legend-hint">Hover a region on the map, or click a country below, to bring it forward.</p>
+      <input type="text" id="legend-search" placeholder="Filter countries&hellip;" autocomplete="off" />
+      <ul id="legend-list"></ul>
+      <div id="detail-panel" class="detail-hidden">
+        <h3 id="detail-name"></h3>
+        <p id="detail-era"></p>
+        <p id="detail-note"></p>
+      </div>
+    </aside>
+  </div>
+
+  <section id="sources-section">
+    <h2>Sources &amp; Notes</h2>
+    <p class="sources-hint">
+      These sources support the historical facts used to pick each country's era and rough extent
+      (peak year, general territorial description). They do not support pixel-precise borders \u2014
+      the polygons drawn on the map are hand-sketched approximations, not traced from a surveyed
+      or GIS dataset. Treat shapes as illustrative until this is upgraded to sourced border data.
+    </p>
+    <ul id="sources-list"></ul>
+  </section>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
